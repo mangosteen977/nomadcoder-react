@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js "></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+    function Btn({ btnText, fontSize, onClick }) {
+        // 부모 컴포넌츠에서 부터 받은 props는 {}오브젝트이기 때문에,
+        // 자식 컴포넌츠(props) 형태로 받아 props.name의 형태로 사용 가능.
+        console.log(btnText, "renderd")
+        return (
+            <button
+                onClick={onClick}
+                style={{
+                    backgroundColor: "orange",
+                    color: "white",
+                    padding: "10px 20px",
+                    border: 0,
+                    borderRadius: 10,
+                    cursor: "pointer",
+                    fontSize: fontSize
+                }}
+            >
+                {btnText}
+            </button>
+        )
+    }
+    function ConfirmBtn() {
+        return <button>Confirm</button>
+    }
+
+
+    // React.memo()
+    const MemorizedBtn = React.memo(Btn);
+    // React.memo(컨포넌츠)
+    // state가 변화한 컨포넌츠에 한해 re-render하도록 기억
+    // 불필요한 컨포넌츠 re-render를 막을 수 있다.
+    MemorizedBtn.propTypes = {
+        btnText: PropTypes.string,
+        fontSize: PropTypes.number.isRequired
+    }
+    // prop-types.js 사용. (https://unpkg.com/prop-types@15.7.2/prop-types.js)
+    // PropTypes를 지정, 다를 경우 경고
+    // react.development.js:245 Warning: Failed prop type:
+    // Invalid prop `fontSize` of type `string` supplied to `Btn`,expected `number`
+
+    // isRequired를 지정, 없을 경우 경고
+    // arning: Failed prop type: The prop `fontSize` is marked as required in `Btn`,
+    // but its value is `undefined`.
+    function App() {
+        const [value, setValue] = React.useState("Save Changes");
+        const changeValue = () => setValue("Revert Changes");
+        return (
+            <div>
+                <MemorizedBtn btnText={value} fontSize={15} onClick={changeValue} />
+                <MemorizedBtn btnText="Continue" fontSize={10} />
+            </div >
+        );
+        // 부모 컨포넌츠에서 자식 컨포넌츠 JSX 속성(style, event)등은 
+        // 자식 컨포넌츠에 적용 X (event에 대한 함수가 존재 하지 않는 경우)
+        // <Btn onClick={changeValue}/> 에서 onClick는 단순 props명으로 동작함.
+    }
+
+
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+</script>
+
+</html>
