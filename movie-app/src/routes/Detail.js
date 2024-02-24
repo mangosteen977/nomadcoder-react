@@ -29,7 +29,7 @@ function Detail(){
     console.log("suggestions",suggestions);
     useEffect(() => {
         getMovies();
-    },[]);
+    },[id]);
     console.log(movie)
     return (
         <div>
