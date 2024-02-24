@@ -3,17 +3,23 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
+import Top from './components/Top';
+import Footer from './components/Footer';
 import Home from './routes/Home';
 import Detail from './routes/Detail';
 
 function App () {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie/:id" element={<Detail />} />
-      </Routes>
-    </Router>
+    <div>
+      <Top />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movie/:id" element={<Detail />} />
+        </Routes>
+      </Router>
+      <Footer />
+    </div>
   );
 }
 export default App;

@@ -1,0 +1,122 @@
+.base_view{
+    width: 100%;
+    padding : 0 20px;
+    margin: 50px 0;
+}
+.btn_normal{
+    display: block;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    border-radius: 10px;
+    background-color: #ddd;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn_normal:hover{
+    background-color: #ccc;
+}
+.loading{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 25px;;
+}
+.poster_view{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.movie_card {
+    padding: 20px;
+    margin-bottom: 20px;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 300px;
+    height: -moz-fit-content;
+    height: fit-content;
+    align-items: center;
+    gap: 10px;
+}
+.movie_card:hover{
+    box-shadow: 5px 5px 5px 5px #ddd;
+}
+.wide_image{
+    width: 100%;
+    padding: 20px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    gap : 20px;
+    background-repeat:"no-repeat";
+    background-size: cover;
+}
+.wide_image > img{
+    width: fit-content;
+    height: 350px;
+    object-fit: cover;
+}
+.movie_info{
+    width: fit-content;
+    height: fit-content;
+    padding : 20px 10px;
+    background: #ffffff2a;
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+}
+.keywords{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap : 5px;
+}
+.keywords > span{
+    width: fit-content;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #ffffff6a;
+    padding: 5px;
+    font-size: 12px;
+}
+.keywords_hash{
+    width: 100%;
+    height: fit-content;
+}
+.keywords_hash > span{
+    width: fit-content;
+    height: fit-content;
+    font-size: 11px;
+    padding-right: 5px;
+    color:#a9a9a9;
+}
+.movie_summary{
+    width: 100%;
+    max-width: 600px;
+    height: 100px;
+    overflow-y:auto;
+    font-size: 12px;
+}
+
+/* midea */
+@media (max-width : 920px) {
+    .poster_view{
+        justify-content: space-around;
+    }
+}
+@media (max-width: 620px) {
+    .poster_view{
+        justify-content: center;
+    }
+    .wide_image{
+        flex-wrap: wrap;
+    }
+}
