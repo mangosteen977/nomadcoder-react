@@ -41,7 +41,7 @@ function Home ({menu}) {
                     {movies.map((movie)=>(
                     <Movie
                         key={movie.id}
-                        id={movie.id}z
+                        id={movie.id}
                         medium_cover_image={movie.medium_cover_image}
                         title={movie.title}
                         genres={movie.genres}

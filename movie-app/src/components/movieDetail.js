@@ -1,5 +1,4 @@
 import propTypes from 'prop-types'
-import {Link} from 'react-router-dom';
 import styles from '../css/movie.module.css'
 function MovieDetail({id, medium_cover_image, background_image, title, year,  yt_trailer_code, summary, description_full, genres, rating, runtime}){
     return (
@@ -38,11 +37,6 @@ function MovieDetail({id, medium_cover_image, background_image, title, year,  yt
                     </iframe>
                 </div>
             ) : null}
-
-            <div className={styles.base_view}>
-                <Link to="/" className={styles.btn_normal}>List</Link>
-            </div>
-
         </div>
     )
 }
