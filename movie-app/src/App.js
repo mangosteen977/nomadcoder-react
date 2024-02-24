@@ -3,18 +3,27 @@ import {
   Routes,
   Route
 } from 'react-router-dom';
-import Top from './components/Top';
-import Footer from './components/Footer';
+import Top from './routes/Top';
+import Footer from './routes/Footer';
 import Home from './routes/Home';
 import Detail from './routes/Detail';
+import { useState } from 'react';
 
 function App () {
+  const [menu, setmenu] = useState('');
+  const selectGenreMenu = (genre) => {
+    // Top.js에서 선택 된 장르 메뉴 onDataChange로 받아온 것.
+    // 받아서 Home(영화 조회뷰)로 props 전달
+    // Top.js => App.js => Home.js
+    setmenu(genre);
+  };
+  console.log(menu);
   return (
     <div>
-      <Top />
+      <Top onDataChange={selectGenreMenu} />
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home menu={menu} />} />
           <Route path="/movie/:id" element={<Detail />} />
         </Routes>
       </Router>

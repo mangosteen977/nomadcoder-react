@@ -3,16 +3,19 @@ import Movie from '../components/movie';
 import Loading from '../components/Loading';
 import styles from '../css/movie.module.css'
 
-function Home () {
+function Home ({menu}) {
+    // menu : Top.js => App.js(부모) => Home.js경로로 Top.js에서 선택 된 장르 메뉴.
+    console.log(menu,"menu")
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const getMovies = async() => {
-        const json = await (
-        await fetch(
-            `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=title&&page=${page}`
-        )
-        ).json();
+        let movieApi = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=title&&page=${page}`;
+        if(menu){
+            movieApi += `&&genre=${menu}`;
+            console.log(movieApi)
+        }
+        const json = await(await fetch(movieApi)).json();
         if (page === 1){
             setMovies(json.data.movies);
         } else {
@@ -21,13 +24,13 @@ function Home () {
         setLoading(false);
     };
     const getMoreMovie = () => {
-        setLoading(true);
         setPage((prev) => prev + 1);
     }
     useEffect(() => {
+        setLoading(true);
         getMovies();
-        console.log("more", page);
-    },[page]);
+        console.log("more", page, menu);
+    },[page, menu]);
     console.log(movies)
     return (
         <div>

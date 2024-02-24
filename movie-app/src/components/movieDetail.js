@@ -11,7 +11,7 @@ function MovieDetail({id, medium_cover_image, background_image, title, year,  yt
                 <img src={medium_cover_image} alt={title} />
                 <div className={styles.movie_info}>
                     <h1>{title} ({year})</h1>
-                    <h4>Rating: {rating? rating : null} points</h4>
+                    <h4>{`Rating: (${rating? rating : null} /10)`}</h4>
                     <h4>Runtime: {runtime ? runtime : null} minutes</h4>
                     {genres ? (
                         <div className={styles.keywords}>

@@ -38,6 +38,7 @@ function Detail(){
                     rating={movie.rating}
                     runtime={movie.runtime}
                 />
+                //https://yts.mx/api/v2/movie_suggestions.json?movie_id=10
             )}
         </div>
     );
