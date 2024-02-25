@@ -13,7 +13,7 @@ function Home ({menu}) {
         let movieApi = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=title&&page=${page}`;
         if(menu){
             movieApi += `&&genre=${menu}`;
-            console.log(movieApi)
+            // console.log(movieApi);
         }
         const json = await(await fetch(movieApi)).json();
         if (page === 1){

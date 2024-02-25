@@ -26,11 +26,11 @@ function Detail(){
         setSuggestions(json.data.movies);
         setLoading(false);
     }
-    console.log("suggestions",suggestions);
+    // console.log("suggestions",suggestions);
     useEffect(() => {
         getMovies();
     },[id]);
-    console.log(movie)
+    // console.log(movie)
     return (
         <div>
             {loading ? (
