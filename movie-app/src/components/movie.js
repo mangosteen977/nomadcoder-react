@@ -11,7 +11,7 @@ function Movie({id, medium_cover_image, title, genres}){
                     {genres.map((g)=><span key={g}>#{g}</span>)}
                 </div>
             ) : null}
-            <h2><Link to={`/movie/${id}`}>{title}</Link></h2>
+            <h2><Link to={`${process.env.PUBLIC_URL}/movie/${id}`}>{title}</Link></h2>
         </div>
     )
 }

@@ -23,8 +23,8 @@ function App () {
       <Top onDataChange={selectGenreMenu} />
       <Router>
         <Routes>
-          <Route path="/" element={<Home menu={menu} />} />
-          <Route path="/movie/:id" element={<Detail />} />
+          <Route path={`${process.env.PUBLIC_URL}/`} element={<Home menu={menu} />} />
+          <Route path={`${process.env.PUBLIC_URL}/movie/:id`} element={<Detail />} />
         </Routes>
       </Router>
       <Footer />

@@ -64,11 +64,11 @@ function Detail(){
                             />
                         ))}
                     </div>
-                    <div className={styles.base_view}>
-                        <Link to="/" className={styles.btn_normal}>List</Link>
-                    </div>
                 </div>
             )}
+            <div className={styles.base_view}>
+                <Link to = {`${process.env.PUBLIC_URL}/`} className={styles.btn_normal}>List</Link>
+            </div>
         </div>
     );
 }
