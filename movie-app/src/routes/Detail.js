@@ -51,18 +51,20 @@ function Detail(){
                         rating={movie.rating}
                         runtime={movie.runtime}
                     />
-                    <h4>□ movie suggestions</h4>
-                    <hr />
-                    <div className={styles.poster_view}>
-                        {suggestions.map((movie)=>(
-                            <Movie
-                                key={movie.id}
-                                id={movie.id}
-                                medium_cover_image={movie.medium_cover_image}
-                                title={movie.title}
-                                genres={movie.genres}
-                            />
-                        ))}
+                    <div className={styles.base_view}>
+                        <h4>□ movie suggestions</h4>
+                        <hr />
+                        <div className={styles.poster_view}>
+                            {suggestions.map((movie)=>(
+                                <Movie
+                                    key={movie.id}
+                                    id={movie.id}
+                                    medium_cover_image={movie.medium_cover_image}
+                                    title={movie.title}
+                                    genres={movie.genres}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}
